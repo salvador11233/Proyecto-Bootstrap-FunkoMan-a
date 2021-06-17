@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Basico -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+
+  <!-- Metas Celular-->
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- Metas -->
+  <title>Login | FunkoMania</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Iconos -->
+  <link rel="shortcut icon" type="image/png" href="../images/icon.png"/> 
+  <link rel="apple-touch-icon" href="../images/icon.png">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <!-- CSS 
+  <link rel="stylesheet" href="../css/style.css">-->
+  <!-- Responsive CSS -->
+  <link rel="stylesheet" href="../css/responsive.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/custom.css">
+  <script src="../js/modernizr.js"></script><!--Modernizr -->
+
+</head>
+
+<body style="background-image: url(../images/login_bg.jpg); background-attachment: fixed; background-repeat: no-repeat; background-size: cover;">
+  <div class="container col-md-4">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header" style="background-color: #66BB6A; color: white;"><h5>Login FunkoMania</h5></div>
+      <div class="card-body">
+        <form onsubmit="Login(); return false" method="post" role="form">
+          <div class="form-group">
+            <label for="Correo">Correo Electronico</label>
+            <input class="form-control" id="Correo" type="email" aria-describedby="emailHelp" placeholder="Ingresa tu correo">
+          </div>
+          <div class="form-group">
+            <label for="Contrasena">Contraseña</label>
+            <input class="form-control" id="Contrasena" type="password" placeholder="Ingresa tu contraseña">
+          </div>
+          <button type="submit" class="btn btn-secondary btn-block">Entrar</button>
+          <a href="index.html" class="float-left">Regresar</a>&nbsp;
+          <!--<a href=""  class="float-right">Nuevo usuario</a>-->
+          <div id="alerta"></div>
+        </form>
+        <div class="text-center">
+          <a class="d-block small mt-3" href="" onclick="nuevo_usuario(); return false">Registrarse</a>
+          <a class="d-block small" href="" onclick="olvido_contraeña(); return false">¿Olvidaste tu contraseña?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--Modal de usuarios-->
+    <div class="modal fade" id="usuarios" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+      <div class="modal-dialog modal-lg">
+        <form role="form" action="" id="formulario" name="frmUsuario" onsubmit="Registrar_usu(); return false" enctype="multipart/form-data">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: #2196F3;">
+              <h4 class="modal-title" style="color:#fff"><span id="titu_usu"></span> </h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Nombre:&nbsp; </label>
+                  <input name="nombre" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label >Apellido paterno:&nbsp; </label>
+                  <input name="ap_paterno" class="form-control" required>  
+                </div>
+                <div class="col-md-6">
+                  <label >Apellido materno:&nbsp; </label>
+                  <input name="ap_materno" class="form-control" required>  
+                </div>
+                <div class="col-md-6">
+                  <label>Numero:&nbsp; </label>
+                  <input type="text"  name="numero" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label>Correo:&nbsp; </label>
+                  <input type="email"  name="correo" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label>Colonia:&nbsp; </label>
+                  <input type="text"  name="colonia" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label>Calle:&nbsp; </label>
+                  <input type="text"  name="calle" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label>Codigo Postal:&nbsp; </label>
+                  <input type="text"  name="cp" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label>Contraseña:&nbsp; </label>
+                  <input type="password" name="pass" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label>Confirmar Contraseña:&nbsp; </label>
+                  <input type="password" name="pass_confi" class="form-control" required>
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success btn-circle btn-sm" style="margin-top: 10px;"><i class="glyphicon glyphicon-floppy-saved"></i> Crear cuenta</button>
+            <button type="button" class="btn btn-danger btn-circle btn-sm" data-dismiss="modal" style="margin-top: 10px;"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+        </form>
+        </div>
+      </div>
+
+    <!--Modal de Olvido-->
+    <div class="modal fade" id="olvido" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+      <div class="modal-dialog modal-md">
+        <form role="form" action="" id="formulario" name="frmUsuarioOlvido" onsubmit="Recuperar_usu(); return false" enctype="multipart/form-data">
+          <div class="modal-content ">
+            <div class="modal-header" style="background-color: #2196F3;">
+              <h4 class="modal-title" style="color:#fff"><span id="titu_usu_olv"></span> </h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Correo:&nbsp; </label>
+                  <input type="email" id="correo_olv" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label>Contraseña:&nbsp; </label>
+                  <input type="password" id="pass_olv" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label>Confirmar Contraseña:&nbsp; </label>
+                  <input type="password" id="pass_confi_olv" class="form-control" required>
+                </div>
+            </div>
+          </div>
+           <div id="recu"></div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success btn-circle btn-sm" style="margin-top: 10px;"><i class="glyphicon glyphicon-floppy-saved"></i>Recuperar contraseña</button>
+            <button type="button" class="btn btn-danger btn-circle btn-sm" data-dismiss="modal" style="margin-top: 10px;"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+        </form>
+        </div>
+      </div>
+  <!-- Bootstrap core JavaScript-->
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/bootstrap.bundle.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="../js/jquery.easing.1.3.js"></script>
+  <script src="../fontawesome/js/all.js" type="text/javascript"></script>
+  <script type="text/javascript">
+      function nuevo_usuario(){;
+        document.getElementById('titu_usu').innerHTML="Abrir una cuenta";
+        $('#usuarios').modal('show'); 
+      }
+
+      function olvido_contraeña(){;
+        document.getElementById('titu_usu_olv').innerHTML="Recuperar contraseña";
+        $('#olvido').modal('show'); 
+      }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<html lang="es">
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+   
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ 
+     <!-- Site Metas -->
+    <title>Detalles | FunkoMania</title>  
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Iconos -->
+    <link rel="shortcut icon" type="image/png" href="../images/icon.png"/> 
+    <link rel="apple-touch-icon" href="../images/icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="../js/modernizr.js"></script><!--Modernizr -->
+</head>
+
+    <body>
+        <!-- Navigación -->
+        <div class="container">
+            <nav  style="background-color: #2196F3; " class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+                <div class="container-fluid">
+                    <a class="navbar-brand js-scroll-trigger" href="index.html">
+                        <img class="img-fluid" src="../images/Logo.svg" alt="" />
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a class="btn btn-secondary sm-2 float-right" href="login.html"><i class="fa fa-user"></i></a>
+                </div>  
+            </nav>
+            <header class="tm-site-header">
+                <h1 class="tm-site-name">Nada</h1>
+                <p class="tm-site-description">Nada</p>
+            </header>
+            <br>
+            
+            <div class="tm-main-content no-pad-b">
+                <section class="row tm-item-preview">
+                    <div class="col-md-6 col-sm-12 mb-md-0 mb-5">
+                        <img src="../uploads/Funkos/harley.jpg" alt="Image" class="img-fluid tm-img-center-sm">
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <h2 id="name" class="tm-blue-text tm-margin-b-p">Harley Quinn</h2>
+                        <p class="tm-margin-b-p"><h5>Esta figura es de unas de sus primeras peliculas en el mundo del cine, es unica en su estilo la cual debe ser tuya hoy mismo...</h5></p>
+                        <p class="tm-blue-text tm-margin-b-s"><h3 style="display: inline;">FM:</h3>&nbsp;<h3 id="fm" style="display: inline;">15809</h3></p>
+                        <p class="tm-blue-text tm-margin-b-s"><h3><i style="color: #1293ce">Categoria: </i> <a href="index.html#pops" class="tm-blue-text">DC_Comics</a></h3></p>
+                        <p class="tm-blue-text tm-margin-b-s"><h3 style="display: inline;" ><i style="color: #fed950">Tipo:</i></h3><h3 id="type_fp" style="display: inline;"> Flocked</h3></p>
+                        <p class="tm-blue-text tm-margin-b"><h3 style="display: inline;"><i style="color: #24ce10">Precio:</i>&nbsp;</h3><h3 id="price" style="display: inline;">$1900</h3></p>
+                        <p style="display: inline;">Cantidad: 
+                        <button class="btn btn-secondary btn-sm" onclick="cantidad(3,0,0)"  >-</button>
+                        <input  class="form-control form-control-sm" id="3" type="text" style="text-align: center; width: 30px; display: inline;" value="1">
+                        <button class="btn btn-secondary btn-sm" onclick="cantidad(3,1,10)">+</button></p>
+                        <a href="login.html" class="btn btn-primary btn-sm">Iniciar Seción</a>
+                    </div>
+    
+                </section>
+
+                <br>
+                <br>
+                <h1>Otros <i style="color: #1293ce">Funko</i> <i style="color: #fed950">Pops</i> de tu interes...</h1>
+
+                 <div class="tm-gallery no-pad-b">
+                    <div class="row">
+                        <figure class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item mb-5">
+                            <a href="detalles.html">
+                                <div class="tm-gallery-item-overlay">
+                                    <img src="../uploads/Funkos/funko-pop-john-wick.jpg" alt="Image" class="img-fluid tm-img-center">
+                                </div>
+                                <p class="tm-figcaption no-pad-b">John Wick</p>
+                            </a>
+                        </figure>
+                    </div>   
+                </div> 
+                   
+                            
+            </div>  
+        </div>
+
+        <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-left">
+                    <p class="footer-company-name">Todos Los Derechos Reservados. &copy; 2020 <a href="#">FunkoMania</a> Diseñada Por: 
+                    <a href="#">TSalv</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript -->   
+    <script src="../js/all.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/custom.js"></script> 
+
+    <script type="text/javascript">
+        function cantidad( id_input, operacion, limite){
+            var numero=$('#'+id_input).val();
+            if(operacion=='1'){
+                if (numero<=(limite-1)) {
+                     numero++;
+                }
+            } else {
+                if (numero >=2) {
+                    numero--;
+                }
+            }
+            $('#'+id_input).val(numero);
+        }
+    </script>         
+
+</body>
+</html>
